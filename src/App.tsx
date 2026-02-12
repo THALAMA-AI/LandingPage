@@ -3,7 +3,7 @@ export default function App() {
     <div className="fixed inset-0 bg-black overflow-hidden">
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        src="/thalamacooking.mp4"
+        src="/thalamaintro.mp4"
         autoPlay
         loop
         muted
