@@ -12,3 +12,11 @@ html, body, #root {
 body {
   overflow: hidden;
 }
+
+@font-face {
+  font-family: 'Pirulen';
+  src: url('/fonts/pirulen.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
