@@ -51,10 +51,12 @@ export default function App() {
   };
 
   return (
+    // ← KEY FIX: the root is now a normal scrollable container, not fixed
     <div className="bg-black" style={{ fontFamily: 'Georgia, serif' }}>
 
       {/* ─── SECTION 1: HERO ─────────────────────────────────────────── */}
-      <div className="relative h-screen w-full overflow-hidden">
+      {/* h-screen with relative positioning — video fills it, content sits on top */}
+      <div className="relative w-full" style={{ height: '100svh' }}>
         <video
           className="absolute inset-0 h-full w-full object-cover"
           src="/thalamaintro.mp4"
@@ -90,6 +92,7 @@ export default function App() {
         <button
           onClick={scrollToContact}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors duration-300"
+          style={{ WebkitTapHighlightColor: 'transparent' }}
           aria-label="Scroll to contact"
         >
           <span
@@ -113,8 +116,9 @@ export default function App() {
       {/* ─── SECTION 2: CONTACT ──────────────────────────────────────── */}
       <div
         ref={contactRef}
-        className="relative min-h-screen w-full flex flex-col items-center justify-center px-6 py-24"
+        className="relative w-full flex flex-col items-center justify-center px-6 py-24"
         style={{
+          minHeight: '100svh',
           background: 'linear-gradient(to bottom, #000000 0%, #0a0a0a 40%, #111111 100%)',
         }}
       >
@@ -125,12 +129,12 @@ export default function App() {
         />
 
         {/* Decorative corner marks */}
-        <div className="absolute top-16 left-12 w-6 h-6 border-t border-l border-white/10" />
-        <div className="absolute top-16 right-12 w-6 h-6 border-t border-r border-white/10" />
-        <div className="absolute bottom-16 left-12 w-6 h-6 border-b border-l border-white/10" />
-        <div className="absolute bottom-16 right-12 w-6 h-6 border-b border-r border-white/10" />
+        <div className="absolute top-16 left-6 md:left-12 w-6 h-6 border-t border-l border-white/10" />
+        <div className="absolute top-16 right-6 md:right-12 w-6 h-6 border-t border-r border-white/10" />
+        <div className="absolute bottom-16 left-6 md:left-12 w-6 h-6 border-b border-l border-white/10" />
+        <div className="absolute bottom-16 right-6 md:right-12 w-6 h-6 border-b border-r border-white/10" />
 
-        <div className="w-full max-w-lg">
+        <div className="w-full max-w-lg pb-20">
 
           {/* Header */}
           <div className="text-center mb-14">
@@ -160,29 +164,25 @@ export default function App() {
           <form onSubmit={handleSubmit} className="space-y-4">
 
             {/* Email */}
-            <div className="relative">
-              <input
-                type="email"
-                placeholder="Your email *"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="w-full px-5 py-4 text-sm text-white placeholder-white/25 bg-white/5 border border-white/10 rounded-none focus:outline-none focus:border-white/35 transition-colors duration-300"
-                style={{ fontFamily: 'Georgia, serif' }}
-              />
-            </div>
+            <input
+              type="email"
+              placeholder="Your email *"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full px-5 py-4 text-sm text-white placeholder-white/25 bg-white/5 border border-white/10 rounded-none focus:outline-none focus:border-white/35 transition-colors duration-300"
+              style={{ fontFamily: 'Georgia, serif' }}
+            />
 
             {/* Message */}
-            <div className="relative">
-              <textarea
-                placeholder="Message (optional)"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                rows={4}
-                className="w-full px-5 py-4 text-sm text-white placeholder-white/25 bg-white/5 border border-white/10 rounded-none focus:outline-none focus:border-white/35 transition-colors duration-300 resize-none"
-                style={{ fontFamily: 'Georgia, serif' }}
-              />
-            </div>
+            <textarea
+              placeholder="Message (optional)"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              rows={4}
+              className="w-full px-5 py-4 text-sm text-white placeholder-white/25 bg-white/5 border border-white/10 rounded-none focus:outline-none focus:border-white/35 transition-colors duration-300 resize-none"
+              style={{ fontFamily: 'Georgia, serif' }}
+            />
 
             {/* Submit */}
             <button
@@ -194,12 +194,12 @@ export default function App() {
                 background: isSubmitting ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.95)',
                 color: isSubmitting ? 'rgba(255,255,255,0.4)' : '#000',
                 border: '1px solid rgba(255,255,255,0.15)',
+                WebkitTapHighlightColor: 'transparent',
               }}
             >
               {isSubmitting ? 'Sending…' : 'Notify Me'}
             </button>
 
-            {/* Status messages */}
             {submitStatus === 'success' && (
               <div className="text-center py-3">
                 <p
@@ -234,7 +234,8 @@ export default function App() {
         {/* Back to top */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 hover:text-white/70 transition-colors duration-300"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 hover:text-white/70 transition-colors duration-300"
+          style={{ WebkitTapHighlightColor: 'transparent' }}
           aria-label="Back to top"
         >
           <svg
