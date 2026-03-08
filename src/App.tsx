@@ -1,5 +1,9 @@
 import { useState, useRef } from 'react';
 
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 export default function App() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -15,10 +19,6 @@ export default function App() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-
-    const SERVICE_ID = 'service_j45p4ws';
-    const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // ← replace with your template ID e.g. 'template_xxxxxxx'
-    const PUBLIC_KEY = '3ALNaaJZQgSuhwY9F';
 
     try {
       const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
@@ -86,7 +86,7 @@ export default function App() {
           </p>
         </div>
 
-        {/* Scroll hint — Stay in the loop */}
+        {/* Scroll hint */}
         <button
           onClick={scrollToContact}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors duration-300"
