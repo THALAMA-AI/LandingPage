@@ -224,10 +224,10 @@ export default function App() {
 
           {/* Footer note */}
           <p
-            className="text-center text-white/15 text-xs mt-10 tracking-wider"
+            className="text-center text-white/50 text-xs mt-10 tracking-wider"
             style={{ fontFamily: 'Georgia, serif' }}
           >
-            No spam. Ever.
+            Making something scientist want.
           </p>
         </div>
 
