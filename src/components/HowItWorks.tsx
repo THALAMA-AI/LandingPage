@@ -1,49 +1,32 @@
-import { FadeIn } from './FadeIn'
 import { useLang } from '../context/LangContext'
 import { t } from '../i18n/translations'
+import { EvalTable } from './EvalTable'
 
 export function HowItWorks() {
   const { tx } = useLang()
 
   return (
-    <section id="how" style={{ maxWidth: 1200, margin: '0 auto', padding: '7rem 2rem', textAlign: 'center' }}>
-      <FadeIn>
-        <div className="section-label">{tx(t.how.label)}</div>
-      </FadeIn>
-      <FadeIn delay={100}>
-        <h2 className="section-title">{tx(t.how.headline)}</h2>
-      </FadeIn>
-      <FadeIn delay={200}>
-        <p className="section-desc" style={{ margin: '0 auto' }}>{tx(t.how.sub)}</p>
-      </FadeIn>
+    <section id="how" className="band band--lined">
+      <div className="wrap section how">
+        <div className="how__head">
+          <div className="how__head-text">
+            <span className="eyebrow">{tx(t.how.label)}</span>
+            <h2 className="h2">{tx(t.how.headline)}</h2>
+          </div>
+          <p className="body how__aside">{tx(t.how.aside)}</p>
+        </div>
 
-      <div style={{
-        display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-        gap: '1.5px', marginTop: '4.5rem',
-        background: '#1E293B', borderRadius: 16, overflow: 'hidden',
-      }}>
-        {t.how.steps.map((step, i) => (
-          <FadeIn key={step.num} delay={i * 100}>
-            <div style={{
-              background: '#111118', padding: '2.75rem 2.25rem',
-              textAlign: 'left', height: '100%',
-            }}>
-              <div style={{
-                fontFamily: "'DM Serif Display', serif",
-                fontSize: '3.5rem', color: 'rgba(59,130,246,0.15)',
-                lineHeight: 1, marginBottom: '1.25rem', fontWeight: 400,
-              }}>
-                {step.num}
-              </div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', marginBottom: '0.65rem' }}>
-                {tx(step.title)}
-              </div>
-              <p style={{ fontSize: '0.9rem', color: '#94A3B8', lineHeight: 1.65 }}>
-                {tx(step.desc)}
-              </p>
+        <EvalTable />
+
+        <div className="grid-4">
+          {t.how.stages.map(s => (
+            <div key={s.num} className="stage">
+              <span className="stage__num">{s.num}</span>
+              <h3 className="h3 h3--lg">{tx(s.title)}</h3>
+              <p className="body">{tx(s.desc)}</p>
             </div>
-          </FadeIn>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )

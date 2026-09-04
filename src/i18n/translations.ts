@@ -1,158 +1,352 @@
 export type Lang = 'en' | 'es'
 
 export const t = {
-  // Intro
+  // Intro overlay (component kept, not mounted by default)
   intro: {
-    v1: {
-      en: 'Turn a scientist into a 10x scientist.',
-      es: 'Convierte a un científico en un científico 10x.',
-    },
-    v2: {
-      en: 'The AI copilot for scientists.',
-      es: 'El copiloto de IA para científicos.',
-    },
-    sub: {
-      en: 'THALAMA AI — EARLY ACCESS 2026',
-      es: 'THALAMA AI — ACCESO ANTICIPADO 2026',
-    },
-    skip: { en: 'Skip intro', es: 'Saltar intro' },
+    v1:   { en: 'Own your intelligence.',            es: 'Sé dueño de tu inteligencia.' },
+    v2:   { en: 'Do not rent it.',                   es: 'No la rentes.' },
+    sub:  { en: 'THALAMA — OPEN WEIGHT INFRASTRUCTURE', es: 'THALAMA — INFRAESTRUCTURA DE PESOS ABIERTOS' },
+    skip: { en: 'Skip intro',                        es: 'Saltar intro' },
   },
 
-  // Nav
   nav: {
-    cta: { en: 'Request Access', es: 'Solicitar Acceso' },
+    science:    { en: 'Science',            es: 'Ciencia' },
+    legal:      { en: 'Legal',              es: 'Legal' },
+    finance:    { en: 'Finance',            es: 'Finanzas' },
+    government: { en: 'Government',         es: 'Gobierno' },
+    how:        { en: 'How it works',       es: 'Cómo funciona' },
+    cta:        { en: 'Book an evaluation', es: 'Agenda una evaluación' },
   },
 
-  // Hero
   hero: {
-    badge:    { en: 'Now accepting early labs', es: 'Aceptando laboratorios piloto' },
-    headline: { en: 'The AI copilot scientists wear.', es: 'El copiloto de IA que los científicos usan.' },
+    eyebrow: { en: 'Open weight infrastructure', es: 'Infraestructura de pesos abiertos' },
+    line1:   { en: 'Own your intelligence.',      es: 'Sé dueño de tu inteligencia.' },
+    line2:   { en: 'Do not rent it.',             es: 'No la rentes.' },
     sub: {
-      en: 'Thalama listens in your pocket, responds with voice, and documents everything automatically — without touching your screen. Private AI, running on hardware in your lab.',
-      es: 'Thalama escucha desde tu bolsillo, responde con voz y documenta todo automáticamente — sin tocar la pantalla. IA privada, corriendo en hardware dentro de tu laboratorio.',
+      en: 'We help organizations run open weight and open source models on their own infrastructure, without losing quality in their processes.',
+      es: 'Ayudamos a organizaciones a correr modelos de pesos abiertos y de código abierto en su propia infraestructura, sin perder calidad en sus procesos.',
     },
-    cta1: { en: 'Request Early Access', es: 'Solicitar Acceso Anticipado' },
-    cta2: { en: 'Watch the demo',       es: 'Ver el demo' },
-    stats: {
-      latency:     { en: 'Response latency',      es: 'Latencia de respuesta' },
-      sessions:    { en: 'Simultaneous sessions', es: 'Sesiones simultáneas'  },
-      cost:        { en: 'Cost per AI query',     es: 'Costo por consulta'    },
-      dataPrivacy: { en: 'Data stays in your lab',es: 'Datos en tu laboratorio' },
+    cta1: { en: 'Book an evaluation', es: 'Agenda una evaluación' },
+    cta2: { en: 'See how it works',   es: 'Ver cómo funciona' },
+  },
+
+  video: {
+    empty:   { en: 'COMPANY VIDEO / 16:9 / SRC + POSTER SLOT', es: 'VIDEO DE LA EMPRESA / 16:9 / SRC + POSTER' },
+    caption: {
+      en: 'Caption line. Captions track supplied with the video file.',
+      es: 'Línea de descripción. La pista de subtítulos se entrega con el archivo de video.',
     },
   },
 
-  // How it works
-  how: {
-    label:    { en: 'How it works',    es: 'Cómo funciona' },
-    headline: { en: 'Science, hands-free.', es: 'Ciencia, sin manos.' },
-    sub: {
-      en: 'Phone in your lab coat pocket. That\'s all. Thalama hears every command, responds out loud, and writes every note — so you can focus on the work that actually requires your hands.',
-      es: 'El teléfono en el bolsillo de tu bata. Eso es todo. Thalama escucha cada comando, responde en voz alta y escribe cada nota — para que puedas concentrarte en el trabajo que realmente requiere tus manos.',
+  problem: {
+    label:    { en: 'The problem',                             es: 'El problema' },
+    headline: { en: 'Three things you do not control today',  es: 'Tres cosas que hoy no controlas' },
+    items: [
+      {
+        title: { en: 'Access is not yours', es: 'El acceso no es tuyo' },
+        desc: {
+          en: 'Anthropic suspended Fable 5 for all users overnight under export controls. Production workloads built on it stopped with no warning.',
+          es: 'Anthropic suspendió Fable 5 para todos los usuarios de la noche a la mañana por controles de exportación. Las cargas de producción construidas sobre él se detuvieron sin aviso.',
+        },
+      },
+      {
+        title: { en: 'Uptime is not yours', es: 'La disponibilidad no es tuya' },
+        desc: {
+          en: 'A global provider outage stops your operations with theirs. There is no lever on your side to pull.',
+          es: 'Una caída global del proveedor detiene tus operaciones junto con las suyas. No hay ninguna palanca de tu lado que puedas accionar.',
+        },
+      },
+      {
+        title: { en: 'The model is not yours', es: 'El modelo no es tuyo' },
+        desc: {
+          en: 'You cannot fine tune it deeply, you cannot run it offline, and you cannot keep it if the relationship ends.',
+          es: 'No puedes ajustarlo a fondo, no puedes correrlo sin conexión y no puedes conservarlo si la relación termina.',
+        },
+      },
+    ],
+    calloutLabel: { en: 'Not about privacy', es: 'No se trata de privacidad' },
+    calloutText: {
+      en: 'Closed providers now offer customer controlled storage and customer managed keys. Privacy alone is no longer the argument. Ownership is.',
+      es: 'Los proveedores cerrados ya ofrecen almacenamiento controlado por el cliente y llaves administradas por el cliente. La privacidad por sí sola ya no es el argumento. La propiedad lo es.',
     },
-    steps: [
+  },
+
+  counter: {
+    label:    { en: 'The counterweight',                          es: 'El contrapeso' },
+    headline: { en: 'Open models have closed most of the gap',    es: 'Los modelos abiertos han cerrado casi toda la brecha' },
+    sub: {
+      en: 'Open weight releases now compete with closed frontier models on intelligence, at a fraction of the cost. The tradeoff that made renting obvious is no longer the same tradeoff.',
+      es: 'Los lanzamientos de pesos abiertos ya compiten en inteligencia con los modelos cerrados de frontera, a una fracción del costo. El intercambio que hacía obvio rentar ya no es el mismo intercambio.',
+    },
+    quote: {
+      en: 'Jensen Huang argued the world needs both frontier closed and frontier open models. We build the half nobody sells you.',
+      es: 'Jensen Huang sostuvo que el mundo necesita tanto modelos cerrados de frontera como modelos abiertos de frontera. Nosotros construimos la mitad que nadie te vende.',
+    },
+    cite: { en: 'Paraphrased from his open letter on open models', es: 'Parafraseado de su carta abierta sobre modelos abiertos' },
+  },
+
+  how: {
+    label:    { en: 'How it works', es: 'Cómo funciona' },
+    headline: { en: 'Four stages',  es: 'Cuatro etapas' },
+    aside: {
+      en: 'Same four stages everywhere. The workflows inside them change by industry.',
+      es: 'Las mismas cuatro etapas en todos lados. Los flujos de trabajo dentro de ellas cambian según la industria.',
+    },
+    stages: [
       {
         num: '01',
-        title: { en: 'Pocket it', es: 'Guárdalo en el bolsillo' },
-        desc:  {
-          en: 'Open the Thalama app, start a session, and slip your phone into your lab coat pocket. No screen interaction needed for the rest of your experiment.',
-          es: 'Abre la app de Thalama, inicia una sesión y guarda tu teléfono en el bolsillo de tu bata. No necesitas interactuar con la pantalla durante el experimento.',
+        title: { en: 'Compare', es: 'Comparar' },
+        desc: {
+          en: 'One evaluation set from your real workflows. Every model scored against it, before anything changes.',
+          es: 'Un conjunto de evaluación a partir de tus flujos de trabajo reales. Cada modelo se califica contra él, antes de que algo cambie.',
         },
       },
       {
         num: '02',
-        title: { en: 'Speak naturally', es: 'Habla naturalmente' },
-        desc:  {
-          en: 'Ask questions, log observations, search your inventory, and run calculations — all by voice. Thalama understands scientific terminology because it was trained on it.',
-          es: 'Haz preguntas, registra observaciones, busca en tu inventario y realiza cálculos — todo por voz. Thalama entiende terminología científica porque fue entrenado con ella.',
+        title: { en: 'Tune', es: 'Ajustar' },
+        desc: {
+          en: 'We adapt the open weights to your formats and your quality bar, then re score against the same set.',
+          es: 'Adaptamos los pesos abiertos a tus formatos y a tu estándar de calidad, y volvemos a calificar contra el mismo conjunto.',
         },
       },
       {
         num: '03',
-        title: { en: 'Review everything', es: 'Revisa todo' },
-        desc:  {
-          en: 'When the session ends, your complete experiment log — materials, observations, calculations — is already documented on your web dashboard.',
-          es: 'Cuando termina la sesión, tu registro completo del experimento — materiales, observaciones, cálculos — ya está documentado en tu panel web.',
+        title: { en: 'Deploy', es: 'Desplegar' },
+        desc: {
+          en: 'Your hardware, your cloud account, or fully air gapped. Nothing routes through us.',
+          es: 'Tu hardware, tu cuenta de nube o totalmente aislado de la red. Nada pasa por nosotros.',
+        },
+      },
+      {
+        num: '04',
+        title: { en: 'Enable', es: 'Habilitar' },
+        desc: {
+          en: 'Your team runs it, re scores it, swaps models. The engagement is designed to end.',
+          es: 'Tu equipo lo opera, lo vuelve a calificar, cambia de modelo. El compromiso está diseñado para terminar.',
         },
       },
     ],
   },
 
-  // Hardware
-  hardware: {
-    chip:     { en: 'Your lab\'s supercomputer', es: 'El supercomputador de tu laboratorio' },
-    headline: { en: 'AI that never leaves your lab.', es: 'IA que nunca sale de tu laboratorio.' },
-    sub: {
-      en: 'Every other AI product sends your data to external servers. Each query has a cost. Your research leaves your walls. We solved it differently.',
-      es: 'Todos los demás productos de IA envían tus datos a servidores externos. Cada consulta tiene un costo. Tu investigación sale de tus instalaciones. Nosotros lo resolvimos diferente.',
+  eval: {
+    running: { en: 'Scoring 42 workflows from your evaluation set', es: 'Evaluando 42 flujos de trabajo de tu conjunto de evaluación' },
+    done: {
+      en: 'Complete. A tuned 27B open model leads on your eval, on hardware you already have.',
+      es: 'Completo. Un modelo abierto de 27B ajustado lidera en tu evaluación, en hardware que ya tienes.',
     },
-    badgeSub: { en: 'Running live in the lab', es: 'Corriendo en el laboratorio' },
-    props: [
+    models:  { en: 'models',   es: 'modelos' },
+    colModel:   { en: 'Model',     es: 'Modelo' },
+    colLicense: { en: 'License',   es: 'Licencia' },
+    colGpqa:    { en: 'GPQA',      es: 'GPQA' },
+    colSwe:     { en: 'SWE-Pro',   es: 'SWE-Pro' },
+    colYours:   { en: 'Your eval', es: 'Tu eval' },
+    tagYours:  { en: 'YOURS',  es: 'TUYO' },
+    tagRented: { en: 'RENTED', es: 'RENTADO' },
+    tagOpen:   { en: 'OPEN',   es: 'ABIERTO' },
+    foot: {
+      en: 'Illustrative. GPQA and SWE-bench Pro are public figures; the Your eval column is the set we build with your team.',
+      es: 'Ilustrativo. GPQA y SWE-bench Pro son cifras públicas; la columna Tu eval es el conjunto que construimos con tu equipo.',
+    },
+    rows: [
+      { name: { en: 'Kimi K3',          es: 'Kimi K3' },          org: { en: 'Moonshot · 2.8T MoE · 1M ctx',        es: 'Moonshot · 2.8T MoE · 1M ctx' },        license: { en: 'Custom',     es: 'Personalizada' }, gpqa: '93.5', swe: '58.4', score: 88 },
+      { name: { en: 'DeepSeek V4 Pro',  es: 'DeepSeek V4 Pro' },  org: { en: 'DeepSeek · MoE',                     es: 'DeepSeek · MoE' },                     license: { en: 'MIT',        es: 'MIT' },           gpqa: '90.1', swe: '61.7', score: 85 },
+      { name: { en: 'GLM-5.2',          es: 'GLM-5.2' },          org: { en: 'Z.ai · 753B A40B',                   es: 'Z.ai · 753B A40B' },                   license: { en: 'MIT',        es: 'MIT' },           gpqa: '91.2', swe: '62.1', score: 84 },
+      { name: { en: 'Nemotron 3 Ultra', es: 'Nemotron 3 Ultra' }, org: { en: 'NVIDIA · open weights',              es: 'NVIDIA · pesos abiertos' },            license: { en: 'NVIDIA OM',  es: 'NVIDIA OM' },     gpqa: '86.7', swe: '52.8', score: 79 },
+      { name: { en: 'Qwen3.8-27B',      es: 'Qwen3.8-27B' },      org: { en: 'Alibaba · dense · 1 workstation',    es: 'Alibaba · denso · 1 estación de trabajo' }, license: { en: 'Apache 2.0', es: 'Apache 2.0' }, gpqa: '82.6', swe: '47.3', score: 74 },
+      { name: { en: 'Llama 4 Maverick', es: 'Llama 4 Maverick' }, org: { en: 'Meta · 10M ctx',                     es: 'Meta · 10M ctx' },                     license: { en: 'Llama 4',    es: 'Llama 4' },       gpqa: '80.4', swe: '43.9', score: 71 },
+      { name: { en: 'Mistral Small 4',  es: 'Mistral Small 4' },  org: { en: 'Mistral · 119B A6.5B',               es: 'Mistral · 119B A6.5B' },               license: { en: 'Apache 2.0', es: 'Apache 2.0' },    gpqa: '78.9', swe: '41.2', score: 69 },
+      { name: { en: 'Closed frontier model', es: 'Modelo cerrado de frontera' }, org: { en: 'API only · rented access', es: 'Solo API · acceso rentado' }, license: { en: 'None', es: 'Ninguna' }, gpqa: '95.0', swe: '66.0', score: 90, kind: 'closed' },
+      { name: { en: 'Qwen3.8-27B, tuned on your data', es: 'Qwen3.8-27B, ajustado con tus datos' }, org: { en: 'your weights · your hardware', es: 'tus pesos · tu hardware' }, license: { en: 'Yours', es: 'Tuya' }, gpqa: '—', swe: '—', score: 93, kind: 'tuned' },
+    ],
+  },
+
+  where: {
+    label:    { en: 'Where it runs',                     es: 'Dónde corre' },
+    headline: { en: 'Three places, all of them yours',   es: 'Tres lugares, todos tuyos' },
+    places: [
       {
-        title: { en: 'Zero latency',           es: 'Latencia cero'              },
-        desc:  { en: 'Processing happens on a credit-card-sized NVIDIA Jetson Orin Nano inside your lab. No internet dependency. Responses are instant.', es: 'El procesamiento ocurre en una NVIDIA Jetson Orin Nano del tamaño de una tarjeta de crédito dentro de tu laboratorio. Sin dependencia de internet. Las respuestas son instantáneas.' },
+        letter: 'A',
+        title: { en: 'Your own hardware', es: 'Tu propio hardware' },
+        desc: {
+          en: 'On premise servers or edge devices, in the building where the work happens.',
+          es: 'Servidores locales o dispositivos edge, en el edificio donde ocurre el trabajo.',
+        },
       },
       {
-        title: { en: 'Total data privacy',     es: 'Privacidad total de datos'  },
-        desc:  { en: 'Experiment data, scientist observations, and lab information never leave the device. For regulated research, this isn\'t a benefit — it\'s a requirement.', es: 'Los datos del experimento, las observaciones del científico y la información del laboratorio nunca salen del dispositivo. Para investigación regulada, esto no es un beneficio adicional — es un requisito.' },
+        letter: 'B',
+        title: { en: 'Your own cloud account', es: 'Tu propia cuenta de nube' },
+        desc: {
+          en: 'Your tenancy, your region, your controls, your billing.',
+          es: 'Tu tenencia, tu región, tus controles, tu facturación.',
+        },
       },
       {
-        title: { en: 'Zero cost per use',      es: 'Cero costo por uso'         },
-        desc:  { en: 'No API calls. No per-query billing. One device supports your entire team with up to 10 simultaneous sessions — at essentially zero marginal cost.', es: 'Sin llamadas a APIs. Sin facturación por consulta. Un dispositivo soporta a todo tu equipo con hasta 10 sesiones simultáneas — a un costo marginal prácticamente cero.' },
+        letter: 'C',
+        title: { en: 'Air gapped', es: 'Aislado de la red' },
+        desc: {
+          en: 'No outbound connectivity, for the environments where that is the only answer.',
+          es: 'Sin conectividad de salida, para los entornos donde esa es la única respuesta.',
+        },
+      },
+    ],
+    note: { en: 'A risk decision, not a product tier. So it stays yours.', es: 'Una decisión de riesgo, no un nivel de producto. Para que siga siendo tuyo.' },
+  },
+
+  own: {
+    label:    { en: 'What you actually own',      es: 'Lo que realmente posees' },
+    headline: { en: 'Four assets, in your name',  es: 'Cuatro activos, a tu nombre' },
+    items: [
+      {
+        title: { en: 'The model weights', es: 'Los pesos del modelo' },
+        desc:  { en: 'A copy you hold, not an endpoint you are permitted to call.', es: 'Una copia que tú guardas, no un endpoint que te permiten llamar.' },
       },
       {
-        title: { en: 'Lab-specific AI models', es: 'Modelos de IA del laboratorio' },
-        desc:  { en: 'Models trained on real scientific data, lab protocols, and terminology. Each installation is customized with your lab\'s own data and history.', es: 'Modelos entrenados con datos científicos reales, protocolos de laboratorio y terminología especializada. Cada instalación se personaliza con los datos e historial de tu propio laboratorio.' },
+        title: { en: 'The tuned version of it', es: 'Su versión ajustada' },
+        desc:  { en: 'The adaptation carrying your language and standards stays yours.', es: 'La adaptación que lleva tu lenguaje y tus estándares sigue siendo tuya.' },
+      },
+      {
+        title: { en: 'The evaluation set', es: 'El conjunto de evaluación' },
+        desc:  { en: 'How you judge every model that comes after this one.', es: 'Cómo juzgas cada modelo que venga después de este.' },
+      },
+      {
+        title: { en: 'The ability to keep going', es: 'La capacidad de seguir adelante' },
+        desc:  { en: 'If our relationship ends, nothing stops.', es: 'Si nuestra relación termina, nada se detiene.' },
       },
     ],
   },
 
-  // Why different
-  why: {
-    label:    { en: 'The difference',                         es: 'La diferencia'                     },
-    headline: { en: 'Everyone else sends your data out. We don\'t.', es: 'Los demás envían tus datos afuera. Nosotros no.' },
-    colOther: { en: 'Every other AI tool',                    es: 'Cualquier otra herramienta de IA'  },
-    colUs:    { en: 'THALAMA AI',                             es: 'THALAMA AI'                        },
-    other: [
-      { en: 'Every query sent to external servers (OpenAI, Google, Anthropic)',    es: 'Cada consulta enviada a servidores externos (OpenAI, Google, Anthropic)'          },
-      { en: 'Billed per interaction — costs scale with usage',                     es: 'Cobrado por interacción — los costos escalan con el uso'                          },
-      { en: 'Generic models with no domain knowledge',                             es: 'Modelos genéricos sin conocimiento del dominio'                                   },
-      { en: 'Dependent on internet connection',                                    es: 'Dependiente de conexión a internet'                                               },
-      { en: 'Research data exposed to third parties',                              es: 'Datos de investigación expuestos a terceros'                                      },
-    ],
-    ours: [
-      { en: 'All processing on dedicated hardware inside your lab',                es: 'Todo el procesamiento en hardware dedicado dentro de tu laboratorio'              },
-      { en: 'Flat cost — zero marginal cost per query',                            es: 'Costo fijo — cero costo marginal por consulta'                                   },
-      { en: 'Models trained on real scientific protocols and terminology',          es: 'Modelos entrenados en protocolos científicos reales y terminología especializada' },
-      { en: 'Works offline — no internet dependency',                              es: 'Funciona sin internet — sin dependencia de conectividad'                          },
-      { en: 'Data never leaves your facility — full regulatory compliance',        es: 'Los datos nunca salen de tus instalaciones — cumplimiento regulatorio total'      },
+  industries: {
+    label:    { en: 'Four industries',                            es: 'Cuatro industrias' },
+    headline: { en: 'The constraint is different in each one',   es: 'La restricción es distinta en cada una' },
+    items: [
+      {
+        id: 'science',
+        tag:   { en: '/SCIENCE', es: '/CIENCIA' },
+        title: { en: 'Research', es: 'Investigación' },
+        desc:  { en: 'Data use agreements, reproducibility, labs with no connectivity.', es: 'Acuerdos de uso de datos, reproducibilidad, laboratorios sin conectividad.' },
+      },
+      {
+        id: 'legal',
+        tag:   { en: '/LEGAL', es: '/LEGAL' },
+        title: { en: 'Law firms', es: 'Despachos de abogados' },
+        desc:  { en: 'Privilege and confidentiality are obligations, not vendor policy settings.', es: 'El privilegio y la confidencialidad son obligaciones, no configuraciones de política de un proveedor.' },
+      },
+      {
+        id: 'finance',
+        tag:   { en: '/FINANCE', es: '/FINANZAS' },
+        title: { en: 'Banks and insurers', es: 'Bancos y aseguradoras' },
+        desc:  { en: 'Model risk management, concentration risk, documented validation.', es: 'Gestión de riesgo de modelos, riesgo de concentración, validación documentada.' },
+      },
+      {
+        id: 'government',
+        tag:   { en: '/GOVERNMENT', es: '/GOBIERNO' },
+        title: { en: 'Public sector', es: 'Sector público' },
+        desc:  { en: 'Citizen data under your jurisdiction. Services that cannot be switched off abroad.', es: 'Datos de ciudadanos bajo tu jurisdicción. Servicios que no pueden apagarse desde el extranjero.' },
+      },
     ],
   },
 
-  // Demo
-  demo: {
-    label:    { en: 'See it in action',                  es: 'Míralo en acción'           },
-    headline: { en: 'Watch a session from start to finish.', es: 'Mira una sesión de principio a fin.' },
-    sub: {
-      en: 'A scientist runs a full experiment — voice commands, inventory checks, calculations — without touching their screen once.',
-      es: 'Un científico realiza un experimento completo — comandos de voz, revisión de inventario, cálculos — sin tocar su pantalla ni una vez.',
+  proof: {
+    label:    { en: 'Proof',              es: 'Evidencia' },
+    headline: { en: 'Who is doing this',  es: 'Quién está haciendo esto' },
+    items: [
+      {
+        title: { en: 'Production ML inside a global bank', es: 'ML en producción dentro de un banco global' },
+        desc: {
+          en: 'Our founder built a harness around a closed model for regulated workloads at JPMorgan Chase. Lived experience of the constraint, not an endorsement by them.',
+          es: 'Nuestro fundador construyó un harness alrededor de un modelo cerrado para cargas reguladas en JPMorgan Chase. Experiencia vivida de la restricción, no un respaldo de su parte.',
+        },
+      },
+      {
+        title: { en: 'Thala, running on constrained edge hardware', es: 'Thala, corriendo en hardware edge limitado' },
+        desc: {
+          en: 'A hands free copilot for scientists, running open models in real lab conditions where the network cannot be assumed.',
+          es: 'Un copiloto sin manos para científicos, corriendo modelos abiertos en condiciones reales de laboratorio donde no se puede asumir que hay red.',
+        },
+      },
+      {
+        title: { en: 'Open evaluation method', es: 'Método de evaluación abierto' },
+        desc: {
+          en: 'Built with your team, handed to your team. Every number reproducible.',
+          es: 'Construido con tu equipo, entregado a tu equipo. Cada número es reproducible.',
+        },
+      },
+    ],
+    placeholderLabel: { en: 'Placeholder / customer proof', es: 'Espacio reservado / evidencia de clientes' },
+    placeholderText: {
+      en: 'Reserved for customer logos and case studies. It stays empty until they are real. We have no customers in legal, finance or government yet.',
+      es: 'Reservado para logos de clientes y casos de estudio. Permanece vacío hasta que sean reales. Todavía no tenemos clientes en legal, finanzas o gobierno.',
     },
   },
 
-  // CTA
-  cta: {
-    headline: { en: 'Ready to run AI in your lab?',  es: '¿Listo para correr IA en tu laboratorio?' },
-    sub: {
-      en: 'We\'re working with a select group of early labs. Leave your email and we\'ll reach out to schedule a demo.',
-      es: 'Estamos trabajando con un grupo selecto de laboratorios piloto. Deja tu correo y nos pondremos en contacto para programar un demo.',
-    },
-    placeholder: { en: 'your@lab.edu',      es: 'tu@laboratorio.edu' },
-    btn:         { en: 'Request Access',    es: 'Solicitar Acceso'   },
-    success:     { en: "Done! We'll reach out soon.", es: '¡Listo! Te contactaremos pronto.' },
-    note:        { en: 'No spam. We\'ll only reach out to set up your demo.', es: 'Sin spam. Solo nos comunicaremos para coordinar tu demo.' },
+  faq: {
+    label:    { en: 'FAQ',                es: 'Preguntas' },
+    headline: { en: 'The hard questions', es: 'Las preguntas difíciles' },
+    items: [
+      {
+        q: {
+          en: 'Closed providers now let us keep our data in our own cloud. Why do we still need this?',
+          es: 'Los proveedores cerrados ya nos dejan guardar nuestros datos en nuestra propia nube. ¿Por qué seguimos necesitando esto?',
+        },
+        a: {
+          en: 'That is real and it is good. It protects your data. It does not give you a model you own, that you can run offline, or that you keep if the relationship ends. And it was designed with the largest institutions in the world, which is not the same as being designed for you.',
+          es: 'Eso es real y es bueno. Protege tus datos. No te da un modelo que poseas, que puedas correr sin conexión o que conserves si la relación termina. Y fue diseñado con las instituciones más grandes del mundo, lo cual no es lo mismo que estar diseñado para ti.',
+        },
+      },
+      {
+        q: { en: 'Are open models good enough?', es: '¿Los modelos abiertos son lo suficientemente buenos?' },
+        a: {
+          en: 'That is exactly what the evaluation stage measures, on your workflows, before you change anything. If the answer is no for a given workflow, we tell you that.',
+          es: 'Eso es exactamente lo que mide la etapa de evaluación, sobre tus flujos de trabajo, antes de que cambies algo. Si la respuesta es no para un flujo dado, te lo decimos.',
+        },
+      },
+      {
+        q: { en: 'What happens when a better model comes out next month?', es: '¿Qué pasa cuando salga un modelo mejor el próximo mes?' },
+        a: {
+          en: 'We keep one fixed evaluation set built from your real workflows. Every model gets scored against it. Swapping is a config change, not a rebuild.',
+          es: 'Mantenemos un conjunto de evaluación fijo construido a partir de tus flujos de trabajo reales. Cada modelo se califica contra él. Cambiar de modelo es un cambio de configuración, no una reconstrucción.',
+        },
+      },
+      {
+        q: { en: 'Who runs the infrastructure?', es: '¿Quién opera la infraestructura?' },
+        a: {
+          en: 'You do. It runs on your hardware or in your cloud account, and nothing routes through us.',
+          es: 'Tú. Corre en tu hardware o en tu cuenta de nube, y nada pasa por nosotros.',
+        },
+      },
+    ],
   },
 
-  // Footer
+  evaluation: {
+    label:    { en: 'Book an evaluation',                          es: 'Agenda una evaluación' },
+    headline: { en: 'Start with the numbers, not the migration',   es: 'Empieza con los números, no con la migración' },
+    sub: {
+      en: 'We score open models against your real workflows and show you the result. The evaluation changes nothing in production.',
+      es: 'Calificamos modelos abiertos contra tus flujos de trabajo reales y te mostramos el resultado. La evaluación no cambia nada en producción.',
+    },
+    name:      { en: 'Name',         es: 'Nombre' },
+    email:     { en: 'Work email',   es: 'Correo de trabajo' },
+    org:       { en: 'Organization', es: 'Organización' },
+    vertical:  { en: 'Vertical',     es: 'Vertical' },
+    workflows: { en: 'Which workflows are you curious about', es: 'Qué flujos de trabajo te interesan' },
+    verticals: [
+      { value: 'science',    label: { en: 'Science and research', es: 'Ciencia e investigación' } },
+      { value: 'legal',      label: { en: 'Legal',                es: 'Legal' } },
+      { value: 'finance',    label: { en: 'Finance',              es: 'Finanzas' } },
+      { value: 'government', label: { en: 'Government',           es: 'Gobierno' } },
+      { value: 'other',      label: { en: 'Other',                es: 'Otro' } },
+    ],
+    submit:  { en: 'Book an evaluation', es: 'Agendar evaluación' },
+    sending: { en: 'Sending…',           es: 'Enviando…' },
+    noteIdle:    { en: 'No sales sequence. One reply from a person.',              es: 'Sin secuencia de ventas. Una respuesta de una persona.' },
+    noteSuccess: { en: 'Received. We will reply from a person, not a sequence.',   es: 'Recibido. Te responderá una persona, no una secuencia.' },
+    noteError: {
+      en: 'Something went wrong. Write to us directly at diegolarrieta@gmail.com.',
+      es: 'Algo salió mal. Escríbenos directamente a diegolarrieta@gmail.com.',
+    },
+  },
+
   footer: {
-    copy: { en: '© 2026 THALAMA AI. All rights reserved.', es: '© 2026 THALAMA AI. Todos los derechos reservados.' },
+    tagline: { en: 'Own your intelligence.', es: 'Sé dueño de tu inteligencia.' },
   },
 } as const

@@ -1,34 +1,36 @@
-import { useState } from 'react'
 import { LangProvider } from './context/LangContext'
-import { IntroSequence } from './components/IntroSequence'
-import { Navbar }        from './components/Navbar'
+import { Header }        from './components/Header'
 import { Hero }          from './components/Hero'
+import { VideoSlot }     from './components/VideoSlot'
+import { Problem }       from './components/Problem'
+import { Counterweight } from './components/Counterweight'
 import { HowItWorks }    from './components/HowItWorks'
-import { Hardware }      from './components/Hardware'
-import { WhyDifferent }  from './components/WhyDifferent'
-import { DemoVideo }     from './components/DemoVideo'
-import { CTA }           from './components/CTA'
+import { WhereItRuns }   from './components/WhereItRuns'
+import { Industries }    from './components/Industries'
+import { Proof }         from './components/Proof'
+import { FAQ }           from './components/FAQ'
+import { Evaluation }    from './components/Evaluation'
 import { Footer }        from './components/Footer'
 
-export default function App() {
-  const [introDone, setIntroDone] = useState(false)
+// Placeholder until the final company video is dropped in.
+const COMPANY_VIDEO = '/assets/intro-v1.mov'
 
+export default function App() {
   return (
     <LangProvider>
-      {!introDone && <IntroSequence onDone={() => setIntroDone(true)} />}
-
-      <div style={{
-        opacity: introDone ? 1 : 0,
-        transition: 'opacity 0.8s ease 0.2s',
-      }}>
-        <Navbar />
-        <main>
+      <div className="page">
+        <Header />
+        <main style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Hero />
+          <VideoSlot src={COMPANY_VIDEO} />
+          <Problem />
+          <Counterweight />
           <HowItWorks />
-          <Hardware />
-          <WhyDifferent />
-          <DemoVideo />
-          <CTA />
+          <WhereItRuns />
+          <Industries />
+          <Proof />
+          <FAQ />
+          <Evaluation />
         </main>
         <Footer />
       </div>
