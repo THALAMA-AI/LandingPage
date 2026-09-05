@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Pirulen';
+  src: url('/assets/fonts/pirulen.ttf') format('truetype'),
+       url('/assets/fonts/Pirulen Rg.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg:          #0f1417;
   --panel:       #141c20;
@@ -115,7 +124,10 @@ a:hover { color: var(--accent); }
   display: flex; align-items: center; justify-content: space-between; gap: 32px;
   padding-top: 18px; padding-bottom: 18px;
 }
-.header__brand { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.22em; color: var(--fg); }
+.header__brand { display: flex; align-items: center; gap: 10px; color: var(--fg); }
+.header__brand:hover { color: var(--fg); }
+.header__logo { width: 26px; height: 26px; display: block; }
+.header__name { font-family: 'Pirulen', var(--mono); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; }
 .header__nav { display: flex; gap: 30px; font-size: 13.5px; color: var(--muted); }
 .header__nav a { color: var(--muted); }
 .header__nav a:hover { color: var(--accent); }
@@ -230,16 +242,6 @@ a:hover { color: var(--accent); }
 .industry__tag { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.14em; color: var(--accent-ink); }
 .industry__title { font-family: var(--serif); font-weight: 400; font-size: 26px; }
 
-/* ---------- Proof ---------- */
-.proof__list { display: flex; flex-direction: column; gap: 22px; }
-.proof__item { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--line); padding-top: 18px; }
-.placeholder {
-  border: 1px dashed #3a474d; padding: 36px; display: flex; flex-direction: column; gap: 12px;
-  background: repeating-linear-gradient(135deg, #121a1e 0 10px, #151d21 10px 20px);
-}
-.placeholder__label { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
-.placeholder__text { font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 420px; }
-
 /* ---------- FAQ ---------- */
 .faq__item { border-top: 1px solid var(--line); }
 .faq__end { border-top: 1px solid var(--line); }
@@ -303,7 +305,6 @@ a:hover { color: var(--accent); }
   .industries__grid { grid-template-columns: 1fr; }
   .callout { flex-direction: column; gap: 12px; padding: 22px 20px; }
   .own { padding: 28px 22px; }
-  .placeholder { padding: 24px; }
   .header__cta { display: none; }
   .eval__row { grid-template-columns: 1.4fr 1fr; gap: 14px; padding-left: 16px; padding-right: 16px; }
   .eval__hide-sm { display: none; }

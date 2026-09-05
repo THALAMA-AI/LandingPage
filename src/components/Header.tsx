@@ -15,7 +15,10 @@ export function Header() {
   return (
     <header className="header">
       <div className="wrap header__inner">
-        <a href="#top" className="header__brand">THALAMA</a>
+        <a href="#top" className="header__brand">
+          <img src="/assets/logo.svg" alt="" className="header__logo" />
+          <span className="header__name">THALAMA</span>
+        </a>
 
         <nav className="header__nav">
           {links.map(l => (

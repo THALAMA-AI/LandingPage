@@ -7,7 +7,6 @@ import { Counterweight } from './components/Counterweight'
 import { HowItWorks }    from './components/HowItWorks'
 import { WhereItRuns }   from './components/WhereItRuns'
 import { Industries }    from './components/Industries'
-import { Proof }         from './components/Proof'
 import { FAQ }           from './components/FAQ'
 import { Evaluation }    from './components/Evaluation'
 import { Footer }        from './components/Footer'
@@ -28,7 +27,6 @@ export default function App() {
           <HowItWorks />
           <WhereItRuns />
           <Industries />
-          <Proof />
           <FAQ />
           <Evaluation />
         </main>

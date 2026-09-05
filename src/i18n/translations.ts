@@ -246,72 +246,50 @@ export const t = {
     ],
   },
 
-  proof: {
-    label:    { en: 'Proof',              es: 'Evidencia' },
-    headline: { en: 'Who is doing this',  es: 'Quién está haciendo esto' },
-    items: [
-      {
-        title: { en: 'Production ML inside a global bank', es: 'ML en producción dentro de un banco global' },
-        desc: {
-          en: 'Our founder built a harness around a closed model for regulated workloads at JPMorgan Chase. Lived experience of the constraint, not an endorsement by them.',
-          es: 'Nuestro fundador construyó un harness alrededor de un modelo cerrado para cargas reguladas en JPMorgan Chase. Experiencia vivida de la restricción, no un respaldo de su parte.',
-        },
-      },
-      {
-        title: { en: 'Thala, running on constrained edge hardware', es: 'Thala, corriendo en hardware edge limitado' },
-        desc: {
-          en: 'A hands free copilot for scientists, running open models in real lab conditions where the network cannot be assumed.',
-          es: 'Un copiloto sin manos para científicos, corriendo modelos abiertos en condiciones reales de laboratorio donde no se puede asumir que hay red.',
-        },
-      },
-      {
-        title: { en: 'Open evaluation method', es: 'Método de evaluación abierto' },
-        desc: {
-          en: 'Built with your team, handed to your team. Every number reproducible.',
-          es: 'Construido con tu equipo, entregado a tu equipo. Cada número es reproducible.',
-        },
-      },
-    ],
-    placeholderLabel: { en: 'Placeholder / customer proof', es: 'Espacio reservado / evidencia de clientes' },
-    placeholderText: {
-      en: 'Reserved for customer logos and case studies. It stays empty until they are real. We have no customers in legal, finance or government yet.',
-      es: 'Reservado para logos de clientes y casos de estudio. Permanece vacío hasta que sean reales. Todavía no tenemos clientes en legal, finanzas o gobierno.',
-    },
-  },
-
   faq: {
     label:    { en: 'FAQ',                es: 'Preguntas' },
     headline: { en: 'The hard questions', es: 'Las preguntas difíciles' },
     items: [
       {
-        q: {
-          en: 'Closed providers now let us keep our data in our own cloud. Why do we still need this?',
-          es: 'Los proveedores cerrados ya nos dejan guardar nuestros datos en nuestra propia nube. ¿Por qué seguimos necesitando esto?',
-        },
+        q: { en: 'How does my model keep improving over time?', es: '¿Cómo mejora mi modelo con el tiempo?' },
         a: {
-          en: 'That is real and it is good. It protects your data. It does not give you a model you own, that you can run offline, or that you keep if the relationship ends. And it was designed with the largest institutions in the world, which is not the same as being designed for you.',
-          es: 'Eso es real y es bueno. Protege tus datos. No te da un modelo que poseas, que puedas correr sin conexión o que conserves si la relación termina. Y fue diseñado con las instituciones más grandes del mundo, lo cual no es lo mismo que estar diseñado para ti.',
+          en: 'Through the evaluation set, which grows with your real usage. Corrections and hard cases from production are added to it and to the tuning data, the open weights are re tuned on a defined cadence, and the new version is promoted only if it scores higher than the one running. When a better open base model appears, it goes through the same set. Your team owns the whole loop and the runbooks to operate it.',
+          es: 'A través del conjunto de evaluación, que crece con tu uso real. Las correcciones y los casos difíciles de producción se agregan a él y a los datos de ajuste, los pesos abiertos se vuelven a ajustar con una cadencia definida, y la nueva versión se promueve solo si califica más alto que la que está corriendo. Cuando aparece un mejor modelo base abierto, pasa por el mismo conjunto. Tu equipo es dueño de todo el ciclo y de los manuales para operarlo.',
         },
       },
       {
-        q: { en: 'Are open models good enough?', es: '¿Los modelos abiertos son lo suficientemente buenos?' },
+        q: { en: 'What do you need from us to run an evaluation, and how long does it take?', es: '¿Qué necesitan de nosotros para correr una evaluación y cuánto tarda?' },
         a: {
-          en: 'That is exactly what the evaluation stage measures, on your workflows, before you change anything. If the answer is no for a given workflow, we tell you that.',
-          es: 'Eso es exactamente lo que mide la etapa de evaluación, sobre tus flujos de trabajo, antes de que cambies algo. Si la respuesta es no para un flujo dado, te lo decimos.',
+          en: 'A few hours from the people who own the workflows, and a sample of real inputs and expected outputs. From that we build a fixed evaluation set and score every candidate model against it. The result is a scored comparison, delivered in weeks, that changes nothing in production.',
+          es: 'Unas horas de las personas que son dueñas de los flujos de trabajo, y una muestra de entradas reales con sus salidas esperadas. Con eso construimos un conjunto de evaluación fijo y calificamos cada modelo candidato contra él. El resultado es una comparación con puntajes, entregada en semanas, que no cambia nada en producción.',
+        },
+      },
+      {
+        q: { en: 'What hardware do we need, and what does it cost to run?', es: '¿Qué hardware necesitamos y cuánto cuesta operarlo?' },
+        a: {
+          en: 'It depends on the model the evaluation selects. A 27B model quantized to 4 bit fits in about 20 GB of memory, so it runs and fine tunes on a single 32 GB workstation GPU. The trillion parameter open MoE models need multi GPU servers or your existing cloud GPUs. Once deployed there is no per query billing: the cost is hardware, power and the people who operate it. Whether that beats an API bill depends on your volume, so we show you both numbers before you decide.',
+          es: 'Depende del modelo que seleccione la evaluación. Un modelo de 27B cuantizado a 4 bits cabe en unos 20 GB de memoria, así que corre y se ajusta en una sola GPU de estación de trabajo de 32 GB. Los modelos MoE abiertos de billones de parámetros necesitan servidores multi GPU o las GPUs que ya tienes en tu nube. Una vez desplegado no hay facturación por consulta: el costo es el hardware, la energía y las personas que lo operan. Si eso le gana a una factura de API depende de tu volumen, así que te mostramos ambos números antes de que decidas.',
+        },
+      },
+      {
+        q: { en: 'Does our data leave our environment at any point?', es: '¿Nuestros datos salen de nuestro entorno en algún momento?' },
+        a: {
+          en: 'No. Evaluation, tuning and inference all run inside your hardware or your cloud account. Nothing routes through us, and air gapped deployments have no outbound connectivity at all.',
+          es: 'No. La evaluación, el ajuste y la inferencia corren dentro de tu hardware o de tu cuenta de nube. Nada pasa por nosotros, y los despliegues aislados de la red no tienen ninguna conectividad de salida.',
         },
       },
       {
         q: { en: 'What happens when a better model comes out next month?', es: '¿Qué pasa cuando salga un modelo mejor el próximo mes?' },
         a: {
-          en: 'We keep one fixed evaluation set built from your real workflows. Every model gets scored against it. Swapping is a config change, not a rebuild.',
-          es: 'Mantenemos un conjunto de evaluación fijo construido a partir de tus flujos de trabajo reales. Cada modelo se califica contra él. Cambiar de modelo es un cambio de configuración, no una reconstrucción.',
+          en: 'You keep the same fixed evaluation set built from your real workflows, and every new model gets scored against it. If it wins, swapping is a configuration change, not a rebuild.',
+          es: 'Conservas el mismo conjunto de evaluación fijo construido a partir de tus flujos de trabajo reales, y cada modelo nuevo se califica contra él. Si gana, cambiarlo es un cambio de configuración, no una reconstrucción.',
         },
       },
       {
-        q: { en: 'Who runs the infrastructure?', es: '¿Quién opera la infraestructura?' },
+        q: { en: 'Who runs it after the engagement ends? Do we need an ML team?', es: '¿Quién lo opera cuando termina el proyecto? ¿Necesitamos un equipo de ML?' },
         a: {
-          en: 'You do. It runs on your hardware or in your cloud account, and nothing routes through us.',
-          es: 'Tú. Corre en tu hardware o en tu cuenta de nube, y nada pasa por nosotros.',
+          en: 'Your team does, and no. The last stage is enabling the people you already have to run it, re score it and swap models. You leave with the weights, the tuned version, the evaluation set and the runbooks, in your name.',
+          es: 'Tu equipo, y no. La última etapa consiste en habilitar a las personas que ya tienes para operarlo, volver a calificarlo y cambiar de modelo. Te quedas con los pesos, la versión ajustada, el conjunto de evaluación y los manuales de operación, a tu nombre.',
         },
       },
     ],
